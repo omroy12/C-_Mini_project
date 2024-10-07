@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+class bank{
+    char n[30];
+    double a ,b , c ,d ,r ,ti;
+    char t;
+public:
+      void getdata();
+      void saving_account();
+      void current_account();
+      void display();
+};
+void bank ::getdata(void){
+    cout<<"Enter the name of Account Holder Name :"<<endl;
+    cin>>n;
+    cout<<"Enter the Account Number : "<<endl;
+    cin>>a;
+    cout<<"Enter the Deposit Amount : "<<endl;
+    cin>>c;
+    cout<<"Enter the Withdrawal Amount : "<<endl;
+    cin>>d;
+    int b = 10000; 
+    cout<<"Enter the Account Type :"<<endl;
+    cin>>t;
+    cout<<"Enter the Rate :"<<endl;
+    cin>>r;
+    cout<<"Enter the Time Duration"<<endl;
+    cin>>ti;
+    switch(t){
+        case 's':
+           saving_account();
+           break;
+        case 'c':
+           current_account();
+           break;
+    }  
+}
+void bank :: saving_account(void){
+    
+    b = b + c - d ;
+    int f ;
+    f = b + ((b*r*ti)/100);
+    cout<<"The Balance after the compound interest :"<<f<<endl;
+    cout<<"The Amount after withdrawal :"<<b<<endl;
+    cout<<"You will not get a check book."<<endl;
+}
+void bank :: current_account(void){
+    b = b + c - d ;
+    cout<<"The Balance  :"<<b<<endl;
+    if(b>=3000){
+        cout<<"The ledger balance :"<<b<<endl;
+    }
+    else{
+        cout<<"The ledger balance :"<<b - 354<<endl;
+    }
+    cout<<"The Amount after withdrawal :"<<b<<endl;
+    cout<<"You will  get a check book."<<endl;
+}
+void bank :: display(void){
+    cout<<"The account Holder Name:\n"<<n<<endl;
+}
+int main(){
+    bank o;
+    o.getdata();
+    o.display();
+    return 0;
+}
